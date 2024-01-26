@@ -64,6 +64,11 @@ body::before {
     margin-top: 2rem;
 }
 
+.container__boton:hover {
+    background: #a945c7;
+    box-shadow: 0 0 18px #a945c7, 0 0 40px #a945c7, 0 0 80px #a945c7;
+}
+
 .container__boton:disabled {
     background: #898989;
 }

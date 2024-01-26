@@ -15,14 +15,14 @@ function verificarIntento() {
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
     
     if (numeroDeUsuario === numeroSecreto) {
-        asignarTextoElemento('p', `Acertaste el número en ${intentos} ${(intentos === 1) ? 'vez' : 'veces'}`);
+        asignarTextoElemento('p', `¡Felicidades! Acertaste el número en ${intentos} ${(intentos === 1) ? 'vez, ¡Eres el #1!' : 'veces.'}`);
         document.getElementById('reiniciar').removeAttribute('disabled');
     } else {
         // El usuario no acertó.
         if (numeroDeUsuario > numeroSecreto) {
-            asignarTextoElemento('p', 'El número secreto es menor');
+            asignarTextoElemento('p', '¡Oops! El número secreto es menor. Intentalo de nuevo y veamos si puedes descifrarlo!');
         } else {
-            asignarTextoElemento('p', 'El número secreto es mayor');
+            asignarTextoElemento('p', '¡Vas por buen camino! El número es mayor. ¡No te rindas, la victoria está cerca!');
         }
         intentos++;
         limpiarCaja();
@@ -42,7 +42,7 @@ function generarNumeroSecreto() {
 
     // Si ya sorteamos todos los números
     if (listaNumerosSorteados.length == numeroMaximo) {
-        asignarTextoElemento('p', 'Ya se sortearon todos los números posibles');
+        asignarTextoElemento('p', '¡Épico! Has explorado todos los rincones numéricos. ¡Todos los números han sido revelados bajo tu sabia adivinanza!');
     } else {
          // Sí el número generado esta incluido en la lista.
          if (listaNumerosSorteados.includes(numeroGenerado)) {
@@ -61,7 +61,7 @@ function generarNumeroSecreto() {
 function condicionesIniciales() {
     asignarTextoElemento('h1','Juego del número secreto');
     // Indicar mensaje de intervalo de números
-    asignarTextoElemento('p',`Indica un número del 1 al ${numeroMaximo}`);
+    asignarTextoElemento('p',`Ingresa un número del 1 al ${numeroMaximo} y descubre si puedes adivinar el número secreto.`);
     // Generar el número aleatorio
     numeroSecreto = generarNumeroSecreto();
     // Inicializar el número de intentos
